@@ -1,6 +1,7 @@
 package lv.rtu.android.todolist_nvv
 
 import android.content.Context
+import android.graphics.Color
 import androidx.core.content.ContextCompat
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -24,8 +25,8 @@ class TaskItem(
     fun imageResource(): Int = if(isCompleted()) R.drawable.check_circle_24 else R.drawable.button_unchecked_24
     fun imageColor(context: Context): Int = if(isCompleted()) purple(context) else black(context)
 
-    private fun purple(context: Context) = ContextCompat.getColor(context, R.color.purple_500)
-    private fun black(context: Context) = ContextCompat.getColor(context, R.color.black)
+    private fun purple(context: Context) = Color.parseColor("#025464")
+    private fun black(context: Context) = ContextCompat.getColor(context,  R.color.black)
 
     companion object{
         val timeFormatter: DateTimeFormatter = DateTimeFormatter.ISO_TIME
