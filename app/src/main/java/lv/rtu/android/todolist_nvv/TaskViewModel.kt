@@ -3,8 +3,6 @@ package lv.rtu.android.todolist_nvv
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 import java.time.LocalDate
-import java.time.LocalTime
-import java.util.UUID
 
 class TaskViewModel(private val repository: TaskItemRepository): ViewModel() {
     var taskItems: LiveData<List<TaskItem>> = repository.allTaskItems.asLiveData()
@@ -24,7 +22,7 @@ class TaskViewModel(private val repository: TaskItemRepository): ViewModel() {
     fun setCompleted (taskItem: TaskItem) = viewModelScope.launch {
         if(!taskItem.isCompleted())
             taskItem.completedDateString = TaskItem.dateFormatter.format(LocalDate.now())
-        repository.deleteTaskItem(taskItem)
+        repository.updateTaskItem(taskItem)
     }
 }
 

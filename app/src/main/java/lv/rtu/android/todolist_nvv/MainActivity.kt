@@ -3,7 +3,6 @@ package lv.rtu.android.todolist_nvv
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import lv.rtu.android.todolist_nvv.databinding.ActivityMainBinding
 

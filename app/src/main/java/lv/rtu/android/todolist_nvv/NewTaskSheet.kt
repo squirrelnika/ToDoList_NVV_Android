@@ -3,17 +3,15 @@ package lv.rtu.android.todolist_nvv
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.text.Editable
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import lv.rtu.android.todolist_nvv.databinding.FragmentNewTaskSheetBinding
 import java.time.LocalTime
 
-class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment() {
+class NewTaskSheet(private var taskItem: TaskItem?) : BottomSheetDialogFragment() {
 
     private lateinit var binding: FragmentNewTaskSheetBinding
     private lateinit var taskViewModel: TaskViewModel
@@ -61,7 +59,7 @@ class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment() {
         binding.timePickerButton.text = String.format("%02d:%02d", dueTime!!.hour, dueTime!!.minute)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentNewTaskSheetBinding.inflate(inflater, container, false)
         return binding.root
     }
